@@ -1,0 +1,22 @@
+{
+  "name": "quench",
+  "version": "1.0.0",
+  "description": "Project 3",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevin-kabore/quench.git"
+  },
+  "author": "CAKE (Christian, Adrianna, Kevin, Emily)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevin-kabore/quench/issues"
+  },
+  "homepage": "https://github.com/kevin-kabore/quench#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
