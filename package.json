@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/kevin-kabore/quench#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.9",
+    "morgan": "^1.7.0"
   }
 }
