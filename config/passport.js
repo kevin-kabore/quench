@@ -1,45 +1,40 @@
-var LocalStrategy   = require('passport-local').Strategy;
- var User            = require('../models/user');
+var passport        = require('passport');
+var GoogleStrategy  = require('passport-google-oauth20').Strategy;
+var User            = require('../models/User');
 
- module.exports = function(passport) {
-
-  passport.serializeUser(function(user, done) {
-    done(null, user.id);
-  });
-
-  passport.deserializeUser(function(id, callback) {
-    User.findById(id, function(err, user) {
-        callback(err, user);
-     });
-   });
-
-  passport.use('local-signup', new LocalStrategy({
-     usernameField : 'email',
-     passwordField : 'password',
-     passReqToCallback : true
-   }, function(req, email, password, callback) {
-  process.nextTick(function() {
-
-      // Find a user with this e-mail
-      User.findOne({ 'local.email' :  email }, function(err, user) {
-        if (err) return callback(err);
-
-        // If there already is a user with this email
-        if (user) {
-          return callback(null, false, req.flash('signupMessage', 'This email is already used.'));
-        } else {
-        // There is no email registered with this email
-
-          // Create a new user
-          var newUser            = new User();
-          newUser.local.email    = email;
-          newUser.local.password = newUser.encrypt(password);
-
-          newUser.save(function(err) {
-            if (err) throw err;
-            return callback(null, newUser);
-          });
-        }
-      });
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_SECRET,
+    callbackURL: process.env.GOOGLE_CALLBACK
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOne({ 'googleId': profile.id }, function(err, user) {
+      if (err) return cb(err);
+      if (user) {
+        return cb(null, user);
+      } else {
+        // we have a new user via OAuth!
+        var newUser = new User({
+          userName: profile.displayName,
+          name: profile.name.givenName + ' ' + profile.name.familyName,
+          email: profile.emails[0].value,
+          googleId: profile.id
+        });
+        newUser.save(function(err) {
+          if (err) return cb(err);
+          return cb(null, newUser);
+        });
+      }
     });
-  }));
+  }
+))
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
