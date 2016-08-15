@@ -7,7 +7,7 @@ var drinkSchema = mongoose.Schema({
   alcohol: {type: Boolean, required: true, default: false},
   drinkName: {type: String, required: true},
   reviews: [Review.schema],
-  venue: {type: mongoose.Schema.Types.ObjectId, ref: 'Venue'}
+  // venue: {type: mongoose.Schema.Types.ObjectId, ref: 'Venue'}
   // stories : [{ type: Schema.Types.ObjectId, ref: 'Story' }]
 });
 
