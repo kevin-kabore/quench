@@ -3,28 +3,31 @@ require('dotenv').config();
 
 var mongoose = require('./database');
 
+var aprilId,
+    kerriId
+
 var User = require('../models/User'),
     Venue = require('../models/Venue'),
     Review = require('../models/Review'),
     Drink = require('../models/Drink')
 
-  var users = [
+  var users =
     {
       name: "April Ross",
       userName: "ARoss",
       email: "ARoss@USA.com",
-    },
-    {
-      name: "Kerri Walsh Jennings",
-      userName: "KWJ",
-      email: "KWJ@USA.com",
-    },
-  ];
+    }
+    // {
+    //   name: "Kerri Walsh Jennings",
+    //   userName: "KWJ",
+    //   email: "KWJ@USA.com",
+    // },
+  ;
 
-var venues = [
-  {name: 'The Bugalow', address: '101 Wilshire Blvd, Santa Monica, CA 90401'},
-  {name: '41 Ocean Club', address: '1541 Ocean Ave #150, Santa Monica, CA 90401'}
-]
+// var venues = [
+//   {name: 'The Bugalow', address: '101 Wilshire Blvd, Santa Monica, CA 90401'},
+//   {name: '41 Ocean Club', address: '1541 Ocean Ave #150, Santa Monica, CA 90401'}
+// ]
 
 // var drink1 = new Drink();
 // drink1.drinkType = 'Cocktail';
@@ -45,47 +48,51 @@ var reviews =  [
     salty: 2,
     sour: 1,
     savory: 4,
-    thoughts: 'it was bad'
+    thoughts: 'it was bad',
+    user: aprilId
   }
 ]
 
-var drinks = [
-  {
-    drinkType: 'Cocktail',
-    alcohol: true,
-    drinkName: 'Vodka & Redbull',
-    review: {
-      rating: 2,
-      bitter: 1,
-      sweet: 1,
-      salty: 3,
-      sour: 4,
-      savory: 2,
-      thoughts: 'it was good'
-      // venue: venues[0]
-      // venue: 'The Bugalow'
-      // user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
-    }
-  },
-  {
-    drinkType: 'Juice',
-    alcohol: false,
-    drinkName: 'Orange Juice',
-    review: {
-      rating: 2,
-      bitter: 1,
-      sweet: 2,
-      salty: 3,
-      sour: 4,
-      savory: 5,
-      thoughts: 'it was bad'
-      // venue: venues[0]
-      // venue: 'The Bugalow'
-      // user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
-    }
-    // review: reviews[0]
-  }
-]
+// var drinks = [
+//   {
+//     drinkType: 'Cocktail',
+//     alcohol: true,
+//     drinkName: 'Vodka & Redbull',
+//     review: reviews[0]
+//     // review: {
+//     //   rating: 2,
+//     //   bitter: 1,
+//     //   sweet: 1,
+//     //   salty: 3,
+//     //   sour: 4,
+//     //   savory: 2,
+//     //   thoughts: 'it was good'
+//       // venue: venues[0]
+//       // venue: 'The Bugalow'
+//       // user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+//     // }
+//   },
+//   {
+//     drinkType: 'Juice',
+//     alcohol: false,
+//     drinkName: 'Orange Juice',
+//     review: reviews[0]
+//     // review: {
+//     //   rating: 2,
+//     //   bitter: 1,
+//     //   sweet: 2,
+//     //   salty: 3,
+//     //   sour: 4,
+//     //   savory: 5,
+//     //   thoughts: 'it was bad'
+//     //   // venue: venues[0]
+//     //   // venue: 'The Bugalow'
+//     //   // user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+//     // }
+//     // review: reviews[0]
+//   }
+//
+// ]
 
 
 
@@ -97,59 +104,82 @@ var drinks = [
 // drink1.save();
 // console.log('created drink1')
 // process.exit()
-
+//
 User.remove({}, function(err){
   if (err) throw err;
-  User.create(users, function(err, users){
+  User.create(user, function(err, user){
     if (err) {
       throw err
     } else {
       console.log('Added ' + users.length + ' users')
+      return user
       // mongoose.connection.close()
     }
     // process.exit()
+  }).then(function(user) {
+    Review.create({
+      rating: 1,
+      bitter: 4,
+      sweet: 3,
+      salty: 2,
+      sour: 1,
+      savory: 4,
+      thoughts: 'it was bad',
+      user: user._id
+    }, function(err, review) {
+      if (err) {
+        throw err
+      } else {
+        mongoose.connection.close()
+      }
+      process.exit()
+    })
   })
 });
 
-Review.remove({}, function(err){
-  if (err) throw err;
-  Review.create(reviews, function(err, reviews){
-    if (err) {
-      throw err
-    } else {
-      console.log('Added ' + reviews.length + ' users')
-      // mongoose.connection.close()
-    }
-    // process.exit()
-  })
-});
+
+// Review.remove({}, function(err){
+//   if (err) throw err;
+//   Review.create(reviews, function(err, reviews){
+//
+//     if (err) {
+//       throw err
+//     } else {
+//       console.log('Added ' + reviews.length + ' reviews')
+//       mongoose.connection.close()
+//     }
+//     process.exit()
+//   })
+// });
 
 
-Venue.remove({}, function(err){
-  if (err) throw err;
-  Venue.create(venues, function(err, venues){
-    if (err) {
-      throw err
-    } else {
-      console.log('Added ' + venues.length + ' venues')
-      // mongoose.connection.close()
-    }
-    // process.exit()
-  })
-});
 
-Drink.remove({}, function(err){
-  if (err) throw err;
-  Drink.create(drinks, function(err, drinks){
-    if (err) {
-      throw err
-    } else {
-      console.log('Added ' + drinks.length + ' drinks')
-      mongoose.connection.close()
-    }
-    process.exit()
-  })
-});
+//
+// Venue.remove({}, function(err){
+//   if (err) throw err;
+//   Venue.create(venues, function(err, venues){
+//     if (err) {
+//       throw err
+//     } else {
+//       console.log('Added ' + venues.length + ' venues')
+//       // mongoose.connection.close()
+//     }
+//     // process.exit()
+//   })
+// });
+//
+// Drink.remove({}, function(err){
+//   if (err) throw err;
+//   Drink.create(drinks, function(err, drinks){
+//     if (err) {
+//       throw err
+//     } else {
+//       console.log('Added ' + drinks.length + ' drinks')
+//       mongoose.connection.close()
+//     }
+//     process.exit()
+//   })
+// });
 
 // var user1 = new User();
 // user1.name = "Kevin K";
