@@ -3,20 +3,16 @@ require('dotenv').config();
 
 var mongoose = require('./database');
 
-var aprilId,
-    kerriId
-
 var User = require('../models/User'),
-    Venue = require('../models/Venue'),
-    Review = require('../models/Review'),
-    Drink = require('../models/Drink')
+    // Venue = require('../models/Venue'),
+    Review = require('../models/Review');
+    // Drink = require('../models/Drink')
 
-  var users =
-    {
-      name: "April Ross",
-      userName: "ARoss",
-      email: "ARoss@USA.com",
-    }
+var user = {
+    name: "April Ross",
+    userName: "ARoss",
+    email: "ARoss@USA.com",
+  };
     // {
     //   name: "Kerri Walsh Jennings",
     //   userName: "KWJ",
@@ -37,51 +33,50 @@ var reviews =  [
     salty: 2,
     sour: 1,
     savory: 4,
-    thoughts: 'it was bad',
-    user: aprilId
+    thoughts: 'it was bad'
   }
 ]
 
-// var drinks = [
-//   {
-//     drinkType: 'Cocktail',
-//     alcohol: true,
-//     drinkName: 'Vodka & Redbull',
-//     review: reviews[0]
-//     // review: {
-//     //   rating: 2,
-//     //   bitter: 1,
-//     //   sweet: 1,
-//     //   salty: 3,
-//     //   sour: 4,
-//     //   savory: 2,
-//     //   thoughts: 'it was good'
-//       // venue: venues[0]
-//       // venue: 'The Bugalow'
-//       // user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
-//     // }
-//   },
-//   {
-//     drinkType: 'Juice',
-//     alcohol: false,
-//     drinkName: 'Orange Juice',
-//     review: reviews[0]
-//     // review: {
-//     //   rating: 2,
-//     //   bitter: 1,
-//     //   sweet: 2,
-//     //   salty: 3,
-//     //   sour: 4,
-//     //   savory: 5,
-//     //   thoughts: 'it was bad'
-//     //   // venue: venues[0]
-//     //   // venue: 'The Bugalow'
-//     //   // user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
-//     // }
-//     // review: reviews[0]
-//   }
-//
-// ]
+var drinks = [
+  {
+    drinkType: 'Cocktail',
+    alcohol: true,
+    drinkName: 'Vodka & Redbull',
+    review: reviews[0]
+    // review: {
+    //   rating: 2,
+    //   bitter: 1,
+    //   sweet: 1,
+    //   salty: 3,
+    //   sour: 4,
+    //   savory: 2,
+    //   thoughts: 'it was good'
+      // venue: venues[0]
+      // venue: 'The Bugalow'
+      // user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+    // }
+  },
+  {
+    drinkType: 'Juice',
+    alcohol: false,
+    drinkName: 'Orange Juice',
+    review: reviews[0]
+    // review: {
+    //   rating: 2,
+    //   bitter: 1,
+    //   sweet: 2,
+    //   salty: 3,
+    //   sour: 4,
+    //   savory: 5,
+    //   thoughts: 'it was bad'
+    //   // venue: venues[0]
+    //   // venue: 'The Bugalow'
+    //   // user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+    // }
+    // review: reviews[0]
+  }
+
+]
 
 User.remove({}, function(err){
   if (err) throw err;
@@ -89,7 +84,6 @@ User.remove({}, function(err){
     if (err) {
       throw err
     } else {
-      console.log('Added ' + users.length + ' users')
       return user
       // mongoose.connection.close()
     }
