@@ -17,11 +17,19 @@
   },
   "homepage": "https://github.com/kevin-kabore/quench#readme",
   "dependencies": {
+    "bcrypt-nodejs": "latest",
     "body-parser": "^1.15.2",
+    "connect-flash": "~0.1.1",
+    "cookie-parser": "~1.0.0",
     "dotenv": "^2.0.0",
     "ejs": "^2.5.1",
     "express": "^4.14.0",
+    "express-ejs-layouts": "^1.1.0",
+    "express-session": "~1.0.0",
+    "method-override": "~1.0.0",
     "mongoose": "^4.5.9",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "passport": "~0.1.17",
+    "passport-google-oauth20": "^1.0.0"
   }
 }
