@@ -1,0 +1,20 @@
+
+/*Login page*/
+@import 'https://fonts.googleapis.com/css?family=Pacifico';
+.logo {
+  color: #fff;
+  font-size: 800%;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.google {
+  text-align: center;
+}
+body {
+  background-image: url("../img/background.jpeg");
+  background-size: 100%;
+
+  background-position: center top;
+}
