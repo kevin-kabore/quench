@@ -3,7 +3,7 @@
 @import 'https://fonts.googleapis.com/css?family=Pacifico';
 .logo {
   color: #fff;
-  font-size: 800%;
+  font-size: 650%;
   font-family: 'Pacifico', cursive;
   text-align: center;
   margin-bottom: 15px;
@@ -13,8 +13,32 @@
   text-align: center;
 }
 body {
-  background-image: url("../img/background.jpeg");
-  background-size: 100%;
+  background-image: url("../img/drink.jpg");
+  background-size: cover;
+  background-position: center 10%;
+  background-repeat: no-repeat;
 
-  background-position: center top;
+}
+
+.navbar-default {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.login_modal {
+  text-align: center;
+  margin-bottom: 15px;
+
+}
+
+#modal_button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+}
+
+#login_with_google {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  width: 180px;
 }
