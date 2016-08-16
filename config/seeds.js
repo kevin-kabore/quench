@@ -36,7 +36,6 @@ var reviews =  [
     thoughts: 'it was bad'
   }
 ]
-
 var drinks = [
   {
     drinkType: 'Cocktail',
@@ -78,6 +77,8 @@ var drinks = [
 
 ]
 
+console.log(drinks[0].drinkType)
+
 User.remove({}, function(err){
   if (err) throw err;
   User.create(user, function(err, user){
@@ -102,9 +103,14 @@ User.remove({}, function(err){
       if (err) {
         throw err
       } else {
-        mongoose.connection.close()
+        return review
+
       }
-      process.exit()
+
+    }).then(function(review){
+      Drink.create(
+        
+      )
     })
   })
 });
