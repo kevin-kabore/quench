@@ -54,8 +54,8 @@ router.route('/venues')
 //
 //
 // // Routes for reviews
-// router.route('/reviews')
-//   .get(reviewsController.index)
+router.route('/reviews')
+  .get(reviewsController.index)
 //   .post(reviewsController.createReview)
 //
 // router.route('/reviews/new')

@@ -11,3 +11,13 @@ function index(req, res, next){
     res.json(drinks);
   })
 }
+
+function addReview(req, res, next){
+  Drink.find({_id: req.params.id}, function(err, drink){
+    if (err) next(err);
+
+    drink.reviews.push(req.body)
+    drink.save();
+    // only has keys that are properties of reviews
+  })
+}

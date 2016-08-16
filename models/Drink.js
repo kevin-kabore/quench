@@ -2,10 +2,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 console.log("Requires model");
 
-
-
-
-
 var reviewSchema = mongoose.Schema({
   rating: {type: Number, required: true, min: 0, max: 5 },
   bitter: {type: Number, required: true, min: 0, max: 5},
