@@ -3,16 +3,55 @@
   <head>
     <meta charset="utf-8">
     <title>Home Page</title>
+    <%# <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">%>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+
   </head>
   <body>
-    <!-- new html below -->
-    <ul class="right">
-      <% if (user) { %>
-      <li><a href="/logout"><i class="material-icons left"></i>Logout</a></li>
-      <% } else { %>
-      <li><a href="/auth/google"><i class="material-icons left"></i>Login with Google</a></li>
-      <% } %>
-    </ul>
+    <nav class="navbar navbar-default">
+         <div class="container">
+           <!-- Brand and toggle get grouped for better mobile display -->
+           <div class="navbar-header">
+             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+             <a class="navbar-brand" href="/">Quench</a>
+           </div>
+
+
+
+
+
+           <!-- Collect the nav links, forms, and other content for toggling -->
+
+</nav>
+
+<div class="logo">
+ Quench 
+</div>
+
+
+<div class="container-fluid google">
+  <% if (user) { %>
+  <button type="button" class="btn btn-default">
+  <a href="/logout">Logout</a>
+  </button>
+  <% } else { %>
+  <button type="button" class="btn btn-default">
+  <a href="/auth/google">Login with Google</a>
+  </button>
+  <% } %>
+
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
 
   </body>
 </html>
