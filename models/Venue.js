@@ -1,9 +1,11 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
+
 
 var VenueSchema = mongoose.Schema({
   name: {type: String, required: true},
   address: {type: String, required: true},
-  drinks: [ type: {Schema.Types.ObjectId, ref: 'Drink'}]
+  drinks: [{ type: Schema.Types.ObjectId, ref: 'Drink' }]
   // stories : [{ type: Schema.Types.ObjectId, ref: 'Story' }]
 
 })
