@@ -9,7 +9,6 @@ module.exports = {
 
 
 //VENUE ROUTES START HERE
-
 function index(req, res, next) {
   Venue.find({}, function(err, venues){
     if (err) next(err);

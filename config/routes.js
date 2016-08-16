@@ -3,7 +3,8 @@ var express = require('express'),
     passport = require('passport');
 
 // Require controllers
-var venuesController = require('../controllers/venues.js')
+var venuesController = require('../controllers/venues.js'),
+    drinksController = require('../controllers/drinks.js');
 
 router.get('/auth/google', passport.authenticate(
   'google',
@@ -34,5 +35,8 @@ router.route('/venues')
 
 router.get('/venues/new', venuesController.newVenue);
 
+//Routes for Drinks
+router.route('/drinks')
+  .get(drinksController.index);
 
 module.exports = router;
