@@ -45,7 +45,8 @@ function showDrink(req, res){
 }
 
 function updateDrink(req, res){
-  var id = req.params.id;
+  // var id = req.params.id
+  var id = req.params.drinkType;
 
   Drink.findById({_id: id}, function(err, drink){
     if(err) res.json({message: 'Could not find b/c' + err});

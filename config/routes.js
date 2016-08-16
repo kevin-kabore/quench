@@ -40,13 +40,15 @@ router.route('/venues')
 router.route('/drinks')
   .get(drinksController.index)
   .post(drinksController.createDrink)
-//
-// router.route('/drinks/new')
-//   .get(drinksController.newDrink)
-//
+
+router.route('/drinks/new')
+  .get(drinksController.newDrink)
+
+  router.route('/drinks/:id')
+    .get(drinksController.showDrink)
 
 // router.route('/drinks/:id/review')
-//     .post(drinksController.addReview)
+//   .post(drinksController.addReview)
 // router.route('drinks/:id')
 //   .get(drinksController.showDrink)
 //   .patch(drinksController.updateDrink)
@@ -71,7 +73,5 @@ router.route('/drinks')
 //
 // router.route('reviews/:id/edit')
 //   .get(reviewsController.editReview)
-
-
 
 module.exports = router;
