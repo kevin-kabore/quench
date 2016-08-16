@@ -6,7 +6,8 @@ module.exports = {
   createDrink: createDrink,
   showDrink: showDrink,
   updateDrink: updateDrink,
-  destroyDrink: destroyDrink
+  destroyDrink: destroyDrink,
+  addReview: addReview
 }
 
 function index(req, res, next){
