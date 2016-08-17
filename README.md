@@ -1,4 +1,4 @@
-# Quench
+# { Quench }
 ## Welcome to Quench
 
 This is the application that can help you find out
