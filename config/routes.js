@@ -32,7 +32,10 @@ router.get('/', function(req, res) {
 //Routes for Venue
 router.route('/venues')
   .get(venuesController.index)
-  // .post(venuesController.createVenue);
+  .post(venuesController.createVenue)
+
+router.route('/venues/new')
+  .get(venuesController.newVenue)
 
 // router.get('/venues/new', venuesController.newVenue);
 //
@@ -43,11 +46,14 @@ router.route('/drinks')
 
 router.route('/drinks/new')
   .get(drinksController.newDrink)
+
 router.route('/drinks/:id')
   .get(drinksController.showDrink)
+  // .patch(drinksController.updateDrink)
+  .delete(drinksController.destroyDrink)
 
-// router.route('/drinks/:id/review')
-//   .post(drinksController.addReview)
+router.route('/drinks/:id/addreview')
+  .post(drinksController.addReview)
 // router.route('drinks/:id')
 //   .get(drinksController.showDrink)
 //   .patch(drinksController.updateDrink)

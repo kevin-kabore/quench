@@ -22,8 +22,9 @@ function newDrink(req, res){
   res.render('../views/drinks/new');
 };
 
+
 function createDrink(req, res) {
-  console.log(req.body)
+  // console.log(req.body)
   var drink = new Drink(req.body);
 
   drink.save(function(err){
@@ -56,7 +57,7 @@ function updateDrink(req, res){
     drink.save(function(err) {
       if(err) res.json({message: 'Could not update drink b/c' + err});
 
-      response.json({message: 'Drink successfully updated!'});
+      res.json({message: 'Drink successfully updated!'});
     });
   });
 }
@@ -72,11 +73,16 @@ function destroyDrink(req, res) {
 }
 
 function addReview(req, res, next){
-  Drink.find({_id: req.params.id}, function(err, drink){
+  Drink.findById(req.params.id, function(err, drink){
     if (err) next(err);
-
+    console.log('drink: ' + drink)
+    console.log('reviews: ' + drink.reviews)
     drink.reviews.push(req.body)
-    drink.save();
+    drink.save(function(err) {
+      if(err) res.json({message: "Could not add review b/c" + err});
+
+      res.json(drink);
+    });
     // only has keys that are properties of reviews
   })
 }
