@@ -3,7 +3,7 @@ var Review = mongoose.model('Review');
 
 
 var drinkSchema = mongoose.Schema({
-  drinkType: {type: String, required: true},
+  drinkType: {type: String, enum:['Wine', 'Beer', 'Cocktails'], required: true},
   alcohol: {type: Boolean, required: true, default: false},
   drinkName: {type: String, required: true},
   venue: [{type: mongoose.Schema.Types.ObjectId, ref: 'Venue'}],
