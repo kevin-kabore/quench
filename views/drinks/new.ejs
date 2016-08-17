@@ -12,6 +12,18 @@
         <input type="checkbox" name="alcohol" value="TRUE">
       </div>
 
+      <%# make dropdown to bring in all locations%>
+
+
+      <div class="dropdown form-group">
+        <select name="venue">
+          <% venues.forEach(function(venue){ %>
+            <option name="venue"> <%=  venue.name %></option>
+          <%  }) %>
+
+        </select>
+      </div>
+
       <div class="dropdown form-group">
           <%# <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Dropdown

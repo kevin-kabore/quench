@@ -1,4 +1,5 @@
 var Drink = require('../models/Drink')
+var Venue = require('../models/Venue')
 
 module.exports = {
   index: index,
@@ -7,6 +8,7 @@ module.exports = {
   showDrink: showDrink,
   updateDrink: updateDrink,
   destroyDrink: destroyDrink,
+  newReview: newReview,
   addReview: addReview
 }
 
@@ -19,17 +21,28 @@ function index(req, res, next){
 }
 
 function newDrink(req, res){
-  res.render('../views/drinks/new');
+  Venue.find({}, function(err, venues){
+    if (err) next(err);
+
+    // Change to ejs later
+    res.render('../views/drinks/new', {venues: venues});
+  });
+
 };
 
 
 function createDrink(req, res) {
   // console.log(req.body)
   var drink = new Drink(req.body);
-
+  console.log(drink.venue);
   drink.save(function(err){
     if (err) res.json({message: 'Could not create drink b/c:' + err});
-
+    Venue.findOne({name: drink.venue}, function(err, venue){
+      if (err) next(err);
+      venue.drinks.push(drink);
+      console.log(venue);
+      venue.save();
+    })
     res.redirect("/drinks");
   });
 }
@@ -72,7 +85,12 @@ function destroyDrink(req, res) {
   });
 }
 
+function newReview(req, res){
+  res.render('../views/review/new');
+};
+
 function addReview(req, res, next){
+  // res.render('../views/newReview')
   Drink.findById(req.params.id, function(err, drink){
     if (err) next(err);
     console.log('drink: ' + drink)

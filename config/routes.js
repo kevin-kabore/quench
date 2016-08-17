@@ -34,6 +34,9 @@ router.route('/venues')
   .get(venuesController.index)
   .post(venuesController.createVenue)
 
+router.route('/venues/:id/adddrink')
+  .get(venuesController.addDrink)
+
 router.route('/venues/new')
   .get(venuesController.newVenue)
 
@@ -52,8 +55,11 @@ router.route('/drinks/:id')
   // .patch(drinksController.updateDrink)
   .delete(drinksController.destroyDrink)
 
-router.route('/drinks/:id/addreview')
+router.route('/drinks/:id/review')
+  .get(drinksController.newReview)
   .post(drinksController.addReview)
+
+
 // router.route('drinks/:id')
 //   .get(drinksController.showDrink)
 //   .patch(drinksController.updateDrink)
