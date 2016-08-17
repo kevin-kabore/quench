@@ -2,6 +2,7 @@ var Drink = require('../models/Drink')
 
 module.exports = {
   index: index,
+  selectType: selectType,
   newDrink: newDrink,
   createDrink: createDrink,
   showDrink: showDrink,
@@ -12,11 +13,22 @@ module.exports = {
 }
 
 function index(req, res, next){
-  Drink.find({},function(err, drinks){
-    if (err) next(err);
+  // Drink.find({},function(err, drinks){
+  //   if (err) next(err);
+  //
+  //   res.json(drinks);
+  // });
+  var selectedType = req.query.drinkType
+  Drink.find({drinkType: selectedType}, function(err, drinks){
+    if (err)
+      console.log('error occurred in the database');
+    res.json(drinks)
+  })
+}
 
-    res.json(drinks);
-  });
+function selectType(req, res, next){
+  res.render('../views/drinks/selectType')
+  // return ;
 }
 
 function newDrink(req, res){
