@@ -109,7 +109,7 @@ User.remove({}, function(err){
 
     }).then(function(review){
       Drink.create(
-        
+
       )
     })
   })
