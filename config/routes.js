@@ -34,6 +34,9 @@ router.route('/venues')
   .get(venuesController.index)
   .post(venuesController.createVenue)
 
+router.route('/venues/:id/adddrink')
+  .get(venuesController.addDrink)
+
 router.route('/venues/new')
   .get(venuesController.newVenue)
 
