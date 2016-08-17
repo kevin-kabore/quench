@@ -7,6 +7,7 @@ module.exports = {
   showDrink: showDrink,
   updateDrink: updateDrink,
   destroyDrink: destroyDrink,
+  newReview: newReview,
   addReview: addReview
 }
 
@@ -70,6 +71,11 @@ function destroyDrink(req, res) {
 
     res.json({message: 'Drink successfully destroyed'});
   });
+}
+
+function newReview(req, res){
+  var id = req.params.id // get this var to the form <% id %>
+  res.render('../views/drinks/addreview', {id: id})
 }
 
 function addReview(req, res, next){
