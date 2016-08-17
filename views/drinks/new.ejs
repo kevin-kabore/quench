@@ -1,12 +1,35 @@
-<%# <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>new drink form</title>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
   </head>
   <body>
     <h1>Add New Drink</h1>
+
     <form action="/drinks" method="post">
+
+      <div class="dropdown">
+       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+         Dropdown
+         <span class="caret"></span>
+       </button>
+       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+         <li><a href="#">Wine</a></li>
+         <li><a href="#">Beer</a></li>
+         <li><a href="#">Cocktails</a></li>
+         <li role="separator" class="divider"></li>
+         <li><a href="#">Separated link</a></li>
+       </ul>
+      </div>
+
+
+
+
       <div class="form-group">
         <input type="text" name="name">
       </div>
@@ -17,5 +40,8 @@
         <input type="submit" value="submit">
       </div>
     </form>
+    <script type="text/javascript" src="/javascripts/app.js">
+
+    </script>
   </body>
-</html>%>
+</html>
