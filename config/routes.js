@@ -4,7 +4,7 @@ var express = require('express'),
 
 // Require controllers
 var venuesController = require('../controllers/venues.js'),
-    drinksController = require('../controllers/drinks.js');
+    drinksController = require('../controllers/drinks.js'),
     reviewsController = require('../controllers/reviews.js');
 
 router.get('/auth/google', passport.authenticate(
@@ -43,9 +43,8 @@ router.route('/drinks')
 
 router.route('/drinks/new')
   .get(drinksController.newDrink)
-
-  router.route('/drinks/:id')
-    .get(drinksController.showDrink)
+router.route('/drinks/:id')
+  .get(drinksController.showDrink)
 
 // router.route('/drinks/:id/review')
 //   .post(drinksController.addReview)

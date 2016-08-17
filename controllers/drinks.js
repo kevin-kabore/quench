@@ -22,14 +22,12 @@ function newDrink(req, res){
   res.render('../views/drinks/new');
 };
 
-function createDrink(req, res, next) {
-
+function createDrink(req, res) {
+  console.log(req.body)
   var drink = new Drink(req.body);
-  console.log(drink)
 
   drink.save(function(err){
     if (err) res.json({message: 'Could not create drink b/c:' + err});
-    console.log(drink);
 
     res.redirect("/drinks");
   });
