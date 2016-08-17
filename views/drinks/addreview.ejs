@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New Review Form</title>
+  </head>
+  <body>
+    <h1>Add New Review</h1>
+    <form action="/drinks/<%=id%>/review/new" method="post">
+      <%# <div class="form-group">%>
+        <label>Rating</label>
+        <input type="number" name="rating">
+      <%# </div>%>
+
+      <div class="form-group">
+        <label>Bitter:</label>
+        <input type="number" name="bitter">
+      </div>
+
+      <div class="form-group">
+        <label>Sweet:</label>
+        <input type="number" name="sweet">
+      </div>
+
+      <div class="form-group">
+        <label>Salty:</label>
+        <input type="number" name="salty">
+      </div>
+
+      <div class="form-group">
+        <label>Sour:</label>
+        <input type="number" name="sour">
+      </div>
+
+
+      <div class="form-group">
+        <label>Savory:</label>
+        <input type="number" name="savory">
+      </div>
+
+      <div class="form-group">
+        <label >Thoughts:</label>
+        <input type="text" name="thoughs">
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="submit">
+      </div>
+
+    </form>
+  </body>
+</html>

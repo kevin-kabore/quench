@@ -15,7 +15,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/drinks',
+    successRedirect: '/drinks/selectType',
     failureRedirect: '/'
   }
 ));
@@ -34,15 +34,21 @@ router.route('/venues')
   .get(venuesController.index)
   .post(venuesController.createVenue)
 
+router.route('/venues/:id/adddrink')
+  .get(venuesController.addDrink)
+
 router.route('/venues/new')
   .get(venuesController.newVenue)
 
-// router.get('/venues/new', venuesController.newVenue);
-//
-//Routes for Drinks
+  // router.get('/venues/new', venuesController.newVenue);
+  //
+  //Routes for Drinks
 router.route('/drinks')
   .get(drinksController.index)
   .post(drinksController.createDrink)
+
+router.route('/drinks/selectType')
+  .get(drinksController.selectType)
 
 router.route('/drinks/new')
   .get(drinksController.newDrink)
@@ -52,8 +58,11 @@ router.route('/drinks/:id')
   // .patch(drinksController.updateDrink)
   .delete(drinksController.destroyDrink)
 
-router.route('/drinks/:id/addreview')
+router.route('/drinks/:id/review/new')
+  .get(drinksController.newReview)
   .post(drinksController.addReview)
+
+
 // router.route('drinks/:id')
 //   .get(drinksController.showDrink)
 //   .patch(drinksController.updateDrink)

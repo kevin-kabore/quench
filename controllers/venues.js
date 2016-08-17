@@ -1,14 +1,17 @@
-var Venue = require('../models/Venue');
+var Venue = require('../models/Venue')
+var Drink = require('../models/Drink')
+var drinksController = require('./drinks')
 
 module.exports = {
   index: index,
   newVenue: newVenue,
-  createVenue: createVenue
+  createVenue: createVenue,
+  addDrink: addDrink
 
 }
 
-
 //VENUE ROUTES START HERE
+
 function index(req, res, next) {
   Venue.find({}, function(err, venues){
     if (err) next(err);
@@ -29,11 +32,15 @@ function createVenue(req, res, next)  {
 
   venue.save(function(err){
     if (err) res.json({message: 'Could not create venue b/c:' + err});
-    console.log(venue);
-
     res.redirect("/venues");
   });
 }
+
+function addDrink(req, res, next){
+  var id = req.body.id
+  res.render('../views/drinks/new', {id: id})
+}
+
 
 
 
