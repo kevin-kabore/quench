@@ -13,18 +13,16 @@
 
     <form action="/drinks" method="post">
 
-      <div class="dropdown">
-       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <div class="dropdown form-group">
+       <%# <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
          Dropdown
-         <span class="caret"></span>
-       </button>
-       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-         <li><a href="#">Wine</a></li>
-         <li><a href="#">Beer</a></li>
-         <li><a href="#">Cocktails</a></li>
-         <li role="separator" class="divider"></li>
-         <li><a href="#">Separated link</a></li>
-       </ul>
+         <span class="caret"></span>%>
+       <%# </button>%>
+       <select name="drinkType" aria-labelledby="dropdownMenu1">
+         <option value="wine" name="drinkType">Wine</option>
+         <option value="beer" name="drinkType">Beer</option>
+         <option value="cocktail" name="drinkType">Cocktail</option>
+       </select>
       </div>
 
 
@@ -34,10 +32,10 @@
         <label>Alcohol</label>
         <input type="checkbox" name="alcohol">
       </div>
-      <div class="form-group">
+      <%# <div class="form-group">
         <label>Drink type: </label>
         <input type="text" name="drinkType">
-      </div>
+      </div>%>
       <div class="form-group">
         <label>Drink name: </label>
         <input type="text" name="drinkName">
