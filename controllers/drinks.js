@@ -24,7 +24,7 @@ function newDrink(req, res){
 
 
 function createDrink(req, res) {
-  // console.log(req.body)
+  console.log(req.body)
   var drink = new Drink(req.body);
 
   drink.save(function(err){

@@ -38,6 +38,13 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+//The below global user function makes 'user' globally
+//accessible (This middleware will allow us to use the current user in the layout)
+app.use(function (req, res, next) {
+  global.user = req.user;
+  next()
+});
 app.use(flash());
 
 
