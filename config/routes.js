@@ -4,7 +4,7 @@ var express = require('express'),
 
 // Require controllers
 var venuesController = require('../controllers/venues.js'),
-    drinksController = require('../controllers/drinks.js');
+    drinksController = require('../controllers/drinks.js'),
     reviewsController = require('../controllers/reviews.js');
 
 router.get('/auth/google', passport.authenticate(
