@@ -8,8 +8,19 @@ $(document).ready(function() {
   getDrinks()
 })
 
+var chosenType;
+
+$('.chosenDrinkType').on('click', function() {
+  console.log("you rang???")
+  chosenType = $(this).text();
+  // chosenType = "Wine"
+  console.log(chosenType)
+  getDrinks()
+})
+
 function getDrinks() {
-  var drinks = $.get('/drinks?drinkType=Wine')
+  var drinks = $.get('/drinks?drinkType=' + chosenType)
+  // var drinks = $.get('/drinks?drinkType=' + chosenType)
     .done(function(drinks) {
       $.each(drinks, function(index, drink) {
         addDrink(drink)
