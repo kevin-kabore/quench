@@ -108,7 +108,7 @@ function destroyDrink(req, res) {
 
 function newReview(req, res){
   var id = req.params.id // get this var to the form <% id %>
-  res.render('../views/drinks/addreview', {id: id})
+  res.render('../views/drinks/addreview', {id: id, user: global.user})
 }
 
 function addReview(req, res, next){
@@ -120,6 +120,7 @@ function addReview(req, res, next){
     drink.reviews.push(req.body)
     drink.save(function(err) {
       if(err) res.json({message: "Could not add review b/c" + err});
+
 
       res.json(drink);
     });
