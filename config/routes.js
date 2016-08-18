@@ -65,6 +65,9 @@ router.route('/api/drinks/:id')
   // .patch(drinksController.updateDrink)
   .delete(drinksController.destroyDrink)
 
+router.route('/drinks/:id')
+  .get(drinksController.show)
+
   // router.route('drinks/:id/edit')
   //   .get(drinksController.editDrink)
 
