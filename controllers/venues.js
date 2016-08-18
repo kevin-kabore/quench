@@ -32,7 +32,7 @@ function createVenue(req, res, next)  {
 
   venue.save(function(err){
     if (err) res.json({message: 'Could not create venue b/c:' + err});
-    res.redirect("/venues");
+    res.redirect("/api/venues");
   });
 }
 
