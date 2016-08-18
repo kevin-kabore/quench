@@ -64,7 +64,7 @@ function createDrink(req, res) {
       console.log(venue);
       venue.save();
     })
-    res.redirect("/drinks");
+    res.redirect("/drinks/selectType");
   });
 }
 
