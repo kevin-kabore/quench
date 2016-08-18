@@ -11,6 +11,7 @@ module.exports = {
   destroyDrink: destroyDrink,
   newReview: newReview,
   addReview: addReview,
+  show:show,
   wine: wine
 }
 
@@ -27,14 +28,10 @@ function index(req, res, next){
     res.json(drinks)
   })
 }
-// var drinkSchema = new Schema({
-//   drinkType: {type: String, enum:['Wine', 'Beer', 'Cocktails'], required: true},
-//   alcohol: {type: Boolean, required: true, default: false},
-//   drinkName: {type: String, required: true},
-//   venue: {type: String, ref: 'Venue'},
-//   reviews: [reviewSchema]
-// });
 
+function show(req, res, next){
+  res.render('../views/drinks/show.ejs')
+}
 
 function selectType(req, res, next){
   res.render('../views/drinks/selectType')
@@ -120,9 +117,8 @@ function addReview(req, res, next){
     drink.reviews.push(req.body)
     drink.save(function(err) {
       if(err) res.json({message: "Could not add review b/c" + err});
-
-
-      res.json(drink);
+      // res.json(drink);
+      res.render('../views/drinks/selectType')
     });
     // only has keys that are properties of reviews
   })
