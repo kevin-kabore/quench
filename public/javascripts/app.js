@@ -11,7 +11,8 @@ $(document).ready(function() {
 var chosenType;
 
 $('.chosenDrinkType').on('click', function() {
-  console.log("you rang???")
+  console.log("you rang???");
+  $('ul.wine').empty();
   chosenType = $(this).text();
   // chosenType = "Wine"
   console.log(chosenType)
