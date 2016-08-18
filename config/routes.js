@@ -53,6 +53,11 @@ router.route('/drinks/selectType')
 router.route('/drinks/new')
   .get(drinksController.newDrink)
 
+  // routes for lists by drinkType
+  router.route('/drinks/wine')
+    .get(drinksController.wine)
+
+
 router.route('/drinks/:id')
   .get(drinksController.showDrink)
   // .patch(drinksController.updateDrink)
