@@ -30,9 +30,11 @@ router.get('/', function(req, res) {
 })
 
 //Routes for Venue
+router.route('/venues')
+  .post(venuesController.createVenue)
+
 router.route('/api/venues')
   .get(venuesController.index)
-  .post(venuesController.createVenue)
 
 router.route('/venues/:id/adddrink')
   .get(venuesController.addDrink)
@@ -53,6 +55,11 @@ router.route('/drinks/selectType')
 router.route('/drinks/new')
   .get(drinksController.newDrink)
 
+  // routes for lists by drinkType
+router.route('/drinks/wine')
+  .get(drinksController.wine)
+
+// router.route('/drinks/:id')
 router.route('/api/drinks/:id')
   .get(drinksController.showDrink)
   // .patch(drinksController.updateDrink)

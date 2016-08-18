@@ -2,11 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <title>new drink form</title>
   </head>
   <body>
+
+    <script type="text/javascript" src="/javascripts/app.js"></script>
     <h1>Add New Drink</h1>
-    <form action="/drinks" method="post">
+    <form action="/api/drinks" method="post">
       <div class="form-group">
         <label>Alcohol</label>
         <input type="checkbox" name="alcohol" value="TRUE">
@@ -15,7 +18,7 @@
       <%# make dropdown to bring in all locations%>
 
       <div class="dropdown form-group">
-        <select name="venue">
+        <select name="venue" id="venuesDropdown">
 
 
         </select>
