@@ -10,7 +10,8 @@ module.exports = {
   updateDrink: updateDrink,
   destroyDrink: destroyDrink,
   newReview: newReview,
-  addReview: addReview
+  addReview: addReview,
+  wine: wine
 }
 
 function index(req, res, next){
@@ -26,6 +27,14 @@ function index(req, res, next){
     res.json(drinks)
   })
 }
+// var drinkSchema = new Schema({
+//   drinkType: {type: String, enum:['Wine', 'Beer', 'Cocktails'], required: true},
+//   alcohol: {type: Boolean, required: true, default: false},
+//   drinkName: {type: String, required: true},
+//   venue: {type: String, ref: 'Venue'},
+//   reviews: [reviewSchema]
+// });
+
 
 function selectType(req, res, next){
   res.render('../views/drinks/selectType')
@@ -44,7 +53,7 @@ function newDrink(req, res){
 
 
 function createDrink(req, res) {
-  // console.log(req.body)
+  console.log(req.body)
   var drink = new Drink(req.body);
   console.log(drink.venue);
   drink.save(function(err){
@@ -99,7 +108,7 @@ function destroyDrink(req, res) {
 
 function newReview(req, res){
   var id = req.params.id // get this var to the form <% id %>
-  res.render('../views/drinks/addreview', {id: id})
+  res.render('../views/drinks/addreview', {id: id, user: global.user})
 }
 
 function addReview(req, res, next){
@@ -112,8 +121,13 @@ function addReview(req, res, next){
     drink.save(function(err) {
       if(err) res.json({message: "Could not add review b/c" + err});
 
+
       res.json(drink);
     });
     // only has keys that are properties of reviews
   })
+}
+
+function wine(req, res) {
+  res.render('../views/drinks/indexbyType')
 }
