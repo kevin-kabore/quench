@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <title>new drink form</title>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -9,44 +10,11 @@
 
   </head>
   <body>
+
+    <script type="text/javascript" src="/javascripts/app.js"></script>
     <h1>Add New Drink</h1>
 
-
-    <form action="/drinks" id="newDrinkForm" method="post">
-
-      <%# <div class="dropdown">
-       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1 drinkTypeMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-         Drink Type
-         <span class="caret"></span>
-       </button>
-       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-         <li><a href="#">Wine</a></li>
-         <li><a href="#">Beer</a></li>
-         <li><a href="#">Cocktails</a></li>
-         <li role="separator" class="divider"></li>
-         <li><a href="#">Coffee</a></li>
-         <li><a href="#">Juice's</a></li>
-         <li><a href="#">Teas</a></li>
-         <li><a href="#">Smoothies</a></li>
-       </ul>
-      </div>%>
-
-
-      <%# <form  id="drinkTypeMenu">%>
-     <%# <input class="input-task" type="text" name="drinkType" id="drinkTypeMenu">%>
-     <%# <select name="drink[drinkType]" id="drinkTypeMenu">
-       <option value="" disabled selected>Drink Type</option>
-       <option value="wine">Wine</option>
-       <option value="beer">Beer</option>
-       <option value="cocktail">Cocktail</option>
-       <option value="coffee">Coffee</option>
-       <option value="juice">Juice</option>
-       <option value="smoothie">Smoothie</option>
-     </select>%>
- 
-   <%# </form>%>
-
-
+    <form action="/api/drinks" method="post">
       <div class="form-group">
         <label>Alcohol</label>
         <input type="checkbox" name="alcohol" value="TRUE">
@@ -54,12 +22,9 @@
 
       <%# make dropdown to bring in all locations%>
 
-
       <div class="dropdown form-group">
-        <select name="venue">
-          <% venues.forEach(function(venue){ %>
-            <option name="venue"> <%=  venue.name %></option>
-          <%  }) %>
+        <select name="venue" id="venuesDropdown">
+
 
         </select>
       </div>

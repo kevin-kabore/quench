@@ -52,6 +52,6 @@ var routes = require('./config/routes');
 app.use(routes);
 
 // Tell the app to listen on port 3000
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log('Listening on port 3000');
 });

@@ -10,7 +10,8 @@ module.exports = {
   updateDrink: updateDrink,
   destroyDrink: destroyDrink,
   newReview: newReview,
-  addReview: addReview
+  addReview: addReview,
+  wine: wine
 }
 
 function index(req, res, next){
@@ -26,6 +27,14 @@ function index(req, res, next){
     res.json(drinks)
   })
 }
+// var drinkSchema = new Schema({
+//   drinkType: {type: String, enum:['Wine', 'Beer', 'Cocktails'], required: true},
+//   alcohol: {type: Boolean, required: true, default: false},
+//   drinkName: {type: String, required: true},
+//   venue: {type: String, ref: 'Venue'},
+//   reviews: [reviewSchema]
+// });
+
 
 function selectType(req, res, next){
   res.render('../views/drinks/selectType')
@@ -55,7 +64,7 @@ function createDrink(req, res) {
       console.log(venue);
       venue.save();
     })
-    res.redirect("/drinks");
+    res.redirect("/drinks/selectType");
   });
 }
 
@@ -116,4 +125,8 @@ function addReview(req, res, next){
     });
     // only has keys that are properties of reviews
   })
+}
+
+function wine(req, res) {
+  res.render('../views/drinks/indexbyType')
 }
