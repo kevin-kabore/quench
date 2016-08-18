@@ -9,8 +9,8 @@ var reviewSchema = new Schema({
   sour: {type: Number, required: true, min: 0, max: 5},
   savory: {type: Number, required: true, min: 0, max: 5},
   thoughts: {type: String, required: false},
-  user: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
-  venue: [{type: mongoose.Schema.Types.ObjectId, ref: 'Venue'}]
+  user: {type: String, ref: 'User'},
+
 });
 
 var drinkSchema = new Schema({
