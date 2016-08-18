@@ -30,7 +30,7 @@ router.get('/', function(req, res) {
 })
 
 //Routes for Venue
-router.route('/venues')
+router.route('/api/venues')
   .get(venuesController.index)
   .post(venuesController.createVenue)
 
@@ -43,7 +43,7 @@ router.route('/venues/new')
   // router.get('/venues/new', venuesController.newVenue);
   //
   //Routes for Drinks
-router.route('/drinks')
+router.route('/api/drinks')
   .get(drinksController.index)
   .post(drinksController.createDrink)
 
@@ -53,28 +53,23 @@ router.route('/drinks/selectType')
 router.route('/drinks/new')
   .get(drinksController.newDrink)
 
-router.route('/drinks/:id')
+router.route('/api/drinks/:id')
   .get(drinksController.showDrink)
   // .patch(drinksController.updateDrink)
   .delete(drinksController.destroyDrink)
+
+  // router.route('drinks/:id/edit')
+  //   .get(drinksController.editDrink)
 
 router.route('/drinks/:id/review/new')
   .get(drinksController.newReview)
   .post(drinksController.addReview)
 
-
-// router.route('drinks/:id')
-//   .get(drinksController.showDrink)
-//   .patch(drinksController.updateDrink)
-//   .delete(drinksController.destroyDrink)
-//
-// router.route('drinks/:id/edit')
-//   .get(drinksController.editDrink)
 //
 //
 // // Routes for reviews
-// router.route('/reviews')
-//   .get(reviewsController.index)
+router.route('/reviews')
+  .get(reviewsController.index)
 //   .post(reviewsController.createReview)
 //
 // router.route('/reviews/new')
