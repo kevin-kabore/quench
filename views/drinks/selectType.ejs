@@ -3,29 +3,60 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
   </head>
   <body>
-    <%# <div class="dropdown form-group">
-      <select name="drinkType" aria-labelledby="dropdownMenu1">
-        <option value="Wine" name="drinkType">Wine</option>
-        <option value="Beer" name="drinkType">Beer</option>
-        <option value="Cocktails" name="drinkType">Cocktails</option>
-      </select>
-     </div>%>
-    <div class="">
-      <%# <a href="/drinks?drinkType=Wine">Wine</a>
-      <a href="/drinks?drinkType=Beer">Beer</a>
-      <a href="/drinks?drinkType=Cocktails">Cocktails</a>
-      <a class="chosenDrinkType" href="/drinks/wine">Pretty Wine Page</a>%>
-      <a class="chosenDrinkType">Wine</a>
-      <a class="chosenDrinkType">Beer</a>
-      <a class="chosenDrinkType">Cocktails</a>
-      <ul class="wine">
+<%# // -------sample code below---------- %>
 
-      </ul>
+    <nav class="navbar navbar-inverse sidebar" role="navigation">
+        <div class="container-fluid">
+    		<!-- Brand and toggle get grouped for better mobile display -->
+    		<div class="navbar-header">
+    			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+    				<span class="sr-only">Toggle navigation</span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    			</button>
+    			<%# <a class="navbar-brand" href="#"> { QUENCH }</a>%>
+          <img src="/img/drink.jpg" width="100%" height="200px">
+    		</div>
+    		<!-- Collect the nav links, forms, and other content for toggling -->
+    		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+    			<ul class="nav navbar-nav">
+    				<li class="type-tab"><a class="chosenDrinkType">Wine<span style="font-size:25px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-heart-empty"></span></a></li>
+    				<li class="type-tab"><a class="chosenDrinkType">Beer<span style="font-size:25px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-grain"></span></a></li>
+    				<li class="type-tab"><a class="chosenDrinkType">Cocktails<span style="font-size:25px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-glass"></span></a></li>
+            <button class="new-drink-button"><a href="/drinks/new">addDrink</a></button>
+
+    			</ul>
+    		</div>
+    	</div>
+    </nav>
+    <div class="main">
+      <div class="drink-list">
+        <h2>Current Drinks</h2>
+        <ul class="wine">
+
+        </ul>
+      </div>
+
+
+    </div>
+
+
+<%# //---------------- working code below -------------------%>
+    <div class="">
+      <%# <a class="chosenDrinkType">Wine</a>%>
+      <%# <a class="chosenDrinkType">Beer</a>%>
+      <%# <a class="chosenDrinkType">Cocktails</a>%>
+      <%# <ul class="wine">
+
+      </ul>%>
     </div>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/drinkType.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="/javascripts/app.js"></script>
