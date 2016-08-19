@@ -11,29 +11,52 @@
   </head>
   <body>
 
+
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                  <li><a href="/drinks/selectType">Feed</a></li>
+                  <li><a href="#">Contact</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+
+
+    <div class="box"> <span id="big-text">Add a Drink</span></div>
     <script type="text/javascript" src="/javascripts/app.js"></script>
-    <h1>Add New Drink</h1>
+
+    <div class= "form-container">
 
     <form action="/api/drinks" method="post">
-      <div class="form-group">
-        <label>Alcohol</label>
+      <div class="form-group" id="label1">
+        <label  >Alcohol</label>
         <input type="checkbox" name="alcohol" value="TRUE">
       </div>
 
       <%# make dropdown to bring in all locations%>
 
-      <div class="dropdown form-group">
+      <div class="dropdown form-group" id="venue-dropdown">
         <select name="venue" id="venuesDropdown">
 
 
         </select>
       </div>
 
-      <div class="dropdown form-group">
-          <%# <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Dropdown
-            <span class="caret"></span>%>
-          <%# </button>%>
+      <div class="dropdown form-group" id= "drink-dropdown">
+
       <select name="drinkType" aria-labelledby="dropdownMenu1">
         <option value="Wine" name="drinkType">Wine</option>
         <option value="Beer" name="drinkType">Beer</option>
@@ -41,21 +64,16 @@
       </select>
      </div>
 
-
-      <%# <div class="form-group">
-        <label>Drink type: </label>
-        <input type="text" name="drinkType">
-      </div>%>
-      <div class="form-group">
+      <div class="form-group" id="drink-name">
         <label>Drink name: </label>
         <input type="text" name="drinkName">
       </div>
-      <div class="form-group">
+      <div class="form-group" id="submit-button">
         <input type="submit" value="submit">
       </div>
     </form>
-
-
+  </div>
+    <link rel="stylesheet" href="/stylesheets/addDrink.css">
     <script type="text/javascript" src="../javascripts/app.js">
 
     </script>
