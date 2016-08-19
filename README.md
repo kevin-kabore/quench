@@ -40,6 +40,10 @@ $npm install
 
 Then your free to edit your local version of Quench!
 
+### Known Bugs
+- In the new drink form, the dropdown list of locations displays the same location names multiple times (it's not actually changing the number of location records in the database).
+- Delete Review has yet to be implemented.
+
 ### Next Steps
 
 Our original goal was to incorporate a third party API into our project such as Yelp. A next step would be to use this third party API to filter drinks by location.
