@@ -79,6 +79,7 @@ router.route('/drinks/:id/review/new')
 //
 // // // // //
 router.route('/drinks/:drink_id/review/:id')
+  .get(drinksController.getReview)
   .patch(drinksController.updateReview)//not implemented
   // .delete(drinksController.deleteReview)//not implemented
 // // // // //
