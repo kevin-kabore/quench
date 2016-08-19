@@ -7,6 +7,14 @@ var venuesController = require('../controllers/venues.js'),
     drinksController = require('../controllers/drinks.js'),
     reviewsController = require('../controllers/reviews.js');
 
+function authenticatedUser(req, res, next) {
+  // If the user is authenticated, then we continue the execution
+  if (req.isAuthenticated()) return next();
+
+  // Otherwise the request is always redirected to the home page
+  res.redirect('/');
+}
+
 router.get('/auth/google', passport.authenticate(
   'google',
   {scope: ['profile', 'email']}
@@ -37,14 +45,14 @@ router.route('/api/venues')
   .get(venuesController.index)
 
 router.route('/venues/:id/adddrink')
-  .get(venuesController.addDrink)
+  .get(authenticatedUser, venuesController.addDrink)
 
 router.route('/venues/new')
-  .get(venuesController.newVenue)
+  .get(authenticatedUser, venuesController.newVenue)
 
   // router.get('/venues/new', venuesController.newVenue);
-  //
   //Routes for Drinks
+
 router.route('/api/drinks')
   .get(drinksController.index)
   .post(drinksController.createDrink)
@@ -53,7 +61,7 @@ router.route('/drinks/selectType')
   .get(drinksController.selectType)
 
 router.route('/drinks/new')
-  .get(drinksController.newDrink)
+  .get(authenticatedUser, drinksController.newDrink)
 
   // routes for lists by drinkType
 router.route('/drinks/wine')
@@ -63,23 +71,28 @@ router.route('/drinks/wine')
 router.route('/api/drinks/:id')
   .get(drinksController.showDrink)
   // .patch(drinksController.updateDrink)
-  .delete(drinksController.destroyDrink)
+  .delete(authenticatedUser, drinksController.destroyDrink)
 
 router.route('/drinks/:id')
   .get(drinksController.show)
 
-  // router.route('drinks/:id/edit')
-  //   .get(drinksController.editDrink)
-
-router.route('/drinks/:id/review/new')
-  .get(drinksController.newReview)
-  .post(drinksController.addReview)
-
-//
-//
 // // Routes for reviews
 router.route('/reviews')
   .get(reviewsController.index)
+
+router.route('/drinks/:id/review/new')
+  .get(authenticatedUser, drinksController.newReview)
+  .post(authenticatedUser, drinksController.addReview)
+
+//
+// // // // //
+router.route('/drinks/:drink_id/review/:id')
+  .get(authenticatedUser, drinksController.getReview)
+  .patch(authenticatedUser, drinksController.updateReview)//not implemented
+  // .delete(drinksController.deleteReview)//not implemented
+// // // // //
+//
+
 //   .post(reviewsController.createReview)
 //
 // router.route('/reviews/new')

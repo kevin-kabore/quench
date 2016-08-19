@@ -1,5 +1,6 @@
 var Drink = require('../models/Drink')
 var Venue = require('../models/Venue')
+var Review = require('../models/Review')
 
 module.exports = {
   index: index,
@@ -11,6 +12,8 @@ module.exports = {
   destroyDrink: destroyDrink,
   newReview: newReview,
   addReview: addReview,
+  updateReview: updateReview,
+  getReview: getReview,
   show:show,
   wine: wine
 }
@@ -122,6 +125,74 @@ function addReview(req, res, next){
     });
     // only has keys that are properties of reviews
   })
+}
+
+function getReview(req, res, next){
+  // res.render('../views/drinks/edit')
+  Drink.findById(req.params.drink_id, function(err, drink){
+    var review = drink.reviews.id(req.params.id)
+    res.render('../views/drinks/edit', {review: review, drink_id: drink._id})
+  })
+}
+
+function updateReview(req, res, next){
+    //
+    // Review.findOneAndUpdate({_id: req.params.id}, req.body, function(err, review){
+    //   if (err) next(err);
+    //   console.log(review);
+    //   res.json(review)
+    // })
+    // console.log(req.params.id)
+    // Review.findById(req.params.id, function(err, review) {
+    //   if (err) console.log(err);
+    //   console.log(review);
+    //   res.json(review);
+    // })
+  // Drink.findOneAndUpdate({ _id: req.params.drink_id, review._id: req.params.id}, {review.$.thoughts: 'IT CHANGED!!!'})
+  console.log(req.body)
+  Drink.findOneAndUpdate(
+    {"_id": req.params.drink_id, "reviews._id": req.params.id},
+    {
+      "$set": {
+        "reviews.$.rating": req.body.rating,
+        "reviews.$.bitter": req.body.bitter,
+        "reviews.$.sweet": req.body.sweet,
+        "reviews.$.salty": req.body.salty,
+        "reviews.$.sour": req.body.sour,
+        "reviews.$.savory": req.body.savory,
+        "reviews.$.thoughts": req.body.thoughts
+      }
+    },
+    {new: true},
+    function(err, drink){
+      if (err) next(err)
+
+      res.json(drink)
+    }
+  )
+
+  // Drink.find(req.params.drink_id, function(err, drink){
+  //   if (err) throw err
+  //   var reviews = drink.reviews
+  //   for(var i = 0; i < reviews.length; i++){
+  //     if(review[i]._id === req.params.id){
+  //       review = req.body
+  //       drink.update(function(err) {
+  //         if(err) res.json({message: "Could not add review b/c" + err});
+  //         // res.json(drink);
+  //         res.render('../views/drinks/selectType')
+  //       })
+  //     }
+  //   }
+  // })
+
+
+  // var reviewId = req.params.id
+  // Drink.find(reviewId, function(err, review){
+  //   console.log('koala')
+  // })
+  // res.render('../views/drinks/indexbyType')// not where i want to go
+  // // console.log(Drink.findById(req.params.id))
 }
 
 function wine(req, res) {
