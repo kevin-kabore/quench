@@ -7,7 +7,6 @@ module.exports = {
   newVenue: newVenue,
   createVenue: createVenue,
   addDrink: addDrink
-
 }
 
 //VENUE ROUTES START HERE
@@ -40,15 +39,5 @@ function addDrink(req, res, next){
   var id = req.body.id
   res.render('../views/drinks/new', {id: id})
 }
-
-
-
-
-
-
-
-
-
-
 
 //VENUE ROUTES END HERE
