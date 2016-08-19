@@ -9,105 +9,79 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-
-
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
       <div class="container">
-          <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-          </div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                  <li><a href="/drinks/selectType">Feed</a></li>
-                  <li><a href="#">Contact</a></li>
-              </ul>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/drinks/selectType">Feed</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="logo">
+      Quench
+    </div>
+
+    <!-- Button trigger modal -->
+    <div class="login_modal">
+    <button type="button" id= "modal_button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
+      Why Quench?
+    </button>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">ABOUT QUENCH</h4>
           </div>
-      </div>
-  </nav>
-
-
-<div class="logo">
- Quench
-</div>
-
-
-
-
-
-<!-- Button trigger modal -->
-<div class="login_modal">
-<button type="button" id= "modal_button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
-    Why Quench?
-</button>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" id="myModalLabel">ABOUT QUENCH</h4>
-      </div>
-      <div class="modal-body">
-        We are the site to help you <i>quench</i> your thirst.
-        Use Quench to give you drink recommendations based on what you want
-        right now. We give you drink reviews from real people (not exaggeratd by business owners), and
-        the real word of mouth about where to find that perfect drink, because lets face it,
-        who wants to dig through all those reviews to find out which places may or may not
-        serve the weakest drinks in town, not us!
-        <br>
-        Click the "Log in with Google", button to continue onto the site and QUENCH your thirst ASAP!
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <div class="modal-body">
+            We are the site to help you <i>quench</i> your thirst.
+            Use Quench to give you drink recommendations based on what you want
+            right now. We give you drink reviews from real people (not exaggeratd by business owners), and
+            the real word of mouth about where to find that perfect drink, because lets face it,
+            who wants to dig through all those reviews to find out which places may or may not
+            serve the weakest drinks in town, not us!
+            <br>
+            Click the "Log in with Google", button to continue onto the site and QUENCH your thirst ASAP!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container-fluid google">
-  <% if (user) { %>
-  <button type="button" id= "login_with_google" class="btn btn-default">
-  <a href="/logout">Logout</a>
-  </button>
-  <% } else { %>
-  <button type="button" id= "login_with_google" class="btn btn-default">
-  <a href="/auth/google">Login with Google</a>
-  </button>
-  <% } %>
-
-</div><!-- /.navbar-collapse -->
-</div><!-- /.container-fluid -->
-
-
-
+    <div class="container-fluid google">
+      <% if (user) { %>
+        <button type="button" id= "login_with_google" class="btn btn-default">
+          <a href="/logout">Logout</a>
+        </button>
+      <% } else { %>
+        <button type="button" id= "login_with_google" class="btn btn-default">
+          <a href="/auth/google">Login with Google</a>
+        </button>
+      <% } %>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 
   </body>
 </html>

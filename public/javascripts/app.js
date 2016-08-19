@@ -58,14 +58,6 @@ function getReviews(drinkId) {
   console.log(drink)
 }
 
-// function createReviewHTML(review){
-//   return $('<p>' review.rating '</p>')
-// }
-//
-// $.ajax({
-//   type: "GET",
-//   url: '57b607a28eca0ef12211ace6'
-// })
 
 function addReview(drink) {
   // console.log("hello - i heard you");
@@ -73,9 +65,6 @@ function addReview(drink) {
 }
 
 
-
-
-/// //
 
 $(document).ready(function() {
   $venuesDropdown = $('#venuesDropdown');
