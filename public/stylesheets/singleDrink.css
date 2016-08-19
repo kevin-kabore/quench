@@ -1,0 +1,21 @@
+body {
+  background-image: url("/img/bubbly.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.box {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  margin: auto;
+  height: 100%;
+  width: 700px;
+  z-index: 1;
+}
+
+li {
+  list-style: none;
+}
+
+/* Background image taken from unsplash.com, a free use site*/

@@ -18,8 +18,8 @@
     				<span class="icon-bar"></span>
     				<span class="icon-bar"></span>
     			</button>
-    			<%# <a class="navbar-brand" href="#"> { QUENCH }</a>%>
-          <img src="/img/drink.jpg" width="100%" height="200px">
+    			<a class="navbar-brand logo" href="/"> Quench </a>
+          <%# <img src="/img/beer-hand.jpeg" width="100%" height="200px">%>
     		</div>
     		<!-- Collect the nav links, forms, and other content for toggling -->
     		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
@@ -27,7 +27,11 @@
     				<li class="type-tab"><a class="chosenDrinkType">Wine<span style="font-size:25px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-heart-empty"></span></a></li>
     				<li class="type-tab"><a class="chosenDrinkType">Beer<span style="font-size:25px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-grain"></span></a></li>
     				<li class="type-tab"><a class="chosenDrinkType">Cocktails<span style="font-size:25px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-glass"></span></a></li>
-            <button class="new-drink-button"><a href="/drinks/new">addDrink</a></button>
+            <li class="type-tab"><a class="">Juices<span style="font-size:25px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-apple"></span></a></li>
+            <li class="type-tab"><a class="">Smoothies<span style="font-size:25px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-star-empty"></span></a></li>
+            <li class="type-tab"><a class="">Coffee<span style="font-size:25px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-certificate"></span></a></li>
+            <li class="type-tab"><a class="">Bobba<span style="font-size:25px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tint"></span></a></li>
+
 
     			</ul>
     		</div>
@@ -35,10 +39,12 @@
     </nav>
     <div class="main">
       <div class="drink-list">
-        <h2>Current Drinks</h2>
+        <span id="select"> { Select a Category } </span>
+
         <ul class="wine">
 
         </ul>
+        <a  href= "/drinks/new"><button type="button" class="btn btn-secondary btn-lg btn-block">Add a drink</button></a>
       </div>
 
 
