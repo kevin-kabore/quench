@@ -49,7 +49,6 @@ app.use(function (req, res, next) {
 
 app.use(flash());
 
-
 var routes = require('./config/routes');
 app.use(routes);
 

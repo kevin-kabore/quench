@@ -50,9 +50,6 @@ router.route('/venues/:id/adddrink')
 router.route('/venues/new')
   .get(authenticatedUser, venuesController.newVenue)
 
-  // router.get('/venues/new', venuesController.newVenue);
-  //Routes for Drinks
-
 router.route('/api/drinks')
   .get(drinksController.index)
   .post(drinksController.createDrink)
@@ -84,26 +81,11 @@ router.route('/drinks/:id/review/new')
   .get(authenticatedUser, drinksController.newReview)
   .post(authenticatedUser, drinksController.addReview)
 
-//
 // // // // //
 router.route('/drinks/:drink_id/review/:id')
   .get(authenticatedUser, drinksController.getReview)
   .patch(authenticatedUser, drinksController.updateReview)//not implemented
   // .delete(drinksController.deleteReview)//not implemented
 // // // // //
-//
-
-//   .post(reviewsController.createReview)
-//
-// router.route('/reviews/new')
-//   .get(reviewsController.newReview)
-//
-// router.route('reviews/:id')
-//   .get(reviewsController.showReview)
-//   .patch(reviewsController.updateReview)
-//   .delete(reviewsController.destroyReview)
-//
-// router.route('reviews/:id/edit')
-//   .get(reviewsController.editReview)
 
 module.exports = router;
