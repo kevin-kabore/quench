@@ -43,7 +43,6 @@ function createReviewHTML(drinkId, reviews, reviewNum){
     + '<li>salty: ' + reviews[reviewNum].salty + '</li>'
     + '<li>savory: ' + reviews[reviewNum].savory + '</li>'
     + '<li>thoughts: ' + reviews[reviewNum].thoughts + '</li>'
-    // + '<li><a href=/drinks/"' + drinkId + '/review' + reviews[reviewNum.id] + '"></a></li>'
     + '<a href="/drinks/' + drinkId + '/review/' + reviews[reviewNum]._id + '">edit</a>'
     + '<hr>'
 }

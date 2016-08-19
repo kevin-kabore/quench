@@ -19,11 +19,6 @@ module.exports = {
 }
 
 function index(req, res, next){
-  // Drink.find({},function(err, drinks){
-  //   if (err) next(err);
-  //
-  //   res.json(drinks);
-  // });
   var selectedType = req.query.drinkType
   Drink.find({drinkType: selectedType}, function(err, drinks){
     if (err)
@@ -48,7 +43,6 @@ function newDrink(req, res){
     // Change to ejs later
     res.render('../views/drinks/new', {venues: venues});
   });
-
 };
 
 
@@ -136,19 +130,6 @@ function getReview(req, res, next){
 }
 
 function updateReview(req, res, next){
-    //
-    // Review.findOneAndUpdate({_id: req.params.id}, req.body, function(err, review){
-    //   if (err) next(err);
-    //   console.log(review);
-    //   res.json(review)
-    // })
-    // console.log(req.params.id)
-    // Review.findById(req.params.id, function(err, review) {
-    //   if (err) console.log(err);
-    //   console.log(review);
-    //   res.json(review);
-    // })
-  // Drink.findOneAndUpdate({ _id: req.params.drink_id, review._id: req.params.id}, {review.$.thoughts: 'IT CHANGED!!!'})
   console.log(req.body)
   Drink.findOneAndUpdate(
     {"_id": req.params.drink_id, "reviews._id": req.params.id},
@@ -170,29 +151,6 @@ function updateReview(req, res, next){
       res.json(drink)
     }
   )
-
-  // Drink.find(req.params.drink_id, function(err, drink){
-  //   if (err) throw err
-  //   var reviews = drink.reviews
-  //   for(var i = 0; i < reviews.length; i++){
-  //     if(review[i]._id === req.params.id){
-  //       review = req.body
-  //       drink.update(function(err) {
-  //         if(err) res.json({message: "Could not add review b/c" + err});
-  //         // res.json(drink);
-  //         res.render('../views/drinks/selectType')
-  //       })
-  //     }
-  //   }
-  // })
-
-
-  // var reviewId = req.params.id
-  // Drink.find(reviewId, function(err, review){
-  //   console.log('koala')
-  // })
-  // res.render('../views/drinks/indexbyType')// not where i want to go
-  // // console.log(Drink.findById(req.params.id))
 }
 
 function wine(req, res) {
