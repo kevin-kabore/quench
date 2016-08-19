@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 
 // Use different database URIs based on whether an env var exists.
 var dbUri = process.env.MONGODB_URI ||
-            'mongodb://localhost/quench' + process.env.LOCAL_DB;
+  'mongodb://localhost/quench' + process.env.LOCAL_DB;
+  // 'mongodb://localhost/' + process.env.LOCAL_DB;
 
 if (!process.env.MONGODB_URI) {
   // check that MongoD is running...
@@ -11,7 +12,7 @@ if (!process.env.MONGODB_URI) {
     process.exit(0);
   });
 }
-
+console.log("connecting to: ", dbUri);
 mongoose.connect(dbUri);
 
 module.exports = mongoose;

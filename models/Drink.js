@@ -1,4 +1,6 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose')
+// var Review = require('./Review')
+
 var Schema = mongoose.Schema;
 
 var reviewSchema = new Schema({
@@ -9,8 +11,7 @@ var reviewSchema = new Schema({
   sour: {type: Number, required: true, min: 0, max: 5},
   savory: {type: Number, required: true, min: 0, max: 5},
   thoughts: {type: String, required: false},
-  user: {type: String, ref: 'User'},
-
+  user: {type: String, ref: 'User'}
 });
 
 var drinkSchema = new Schema({
