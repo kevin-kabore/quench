@@ -1,5 +1,6 @@
 
 /*Login page*/
+@import 'https://fonts.googleapis.com/css?family=Poiret+One';
 @import 'https://fonts.googleapis.com/css?family=Pacifico';
 .logo {
   color: #fff;
@@ -54,3 +55,17 @@ body {
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
 }
+
+.modal-title {
+  text-align: center;
+  font-family: 'Poiret One', cursive;
+  font-weight: bold;
+  font-size: 25pt;
+}
+
+.modal-body {
+  font-family: 'Poiret One', cursive;
+  font-size: 15pt;
+
+}
+/* Background image taken from unsplash.com, a free use site*/
