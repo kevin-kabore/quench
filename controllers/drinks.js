@@ -13,6 +13,7 @@ module.exports = {
   newReview: newReview,
   addReview: addReview,
   updateReview: updateReview,
+  getReview: getReview,
   show:show,
   wine: wine
 }
@@ -126,6 +127,14 @@ function addReview(req, res, next){
   })
 }
 
+function getReview(req, res, next){
+  // res.render('../views/drinks/edit')
+  Drink.findById(req.params.drink_id, function(err, drink){
+    var review = drink.reviews.id(req.params.id)
+    res.render('../views/drinks/edit', {review: review, drink_id: drink._id})
+  })
+}
+
 function updateReview(req, res, next){
     //
     // Review.findOneAndUpdate({_id: req.params.id}, req.body, function(err, review){
@@ -140,18 +149,24 @@ function updateReview(req, res, next){
     //   res.json(review);
     // })
   // Drink.findOneAndUpdate({ _id: req.params.drink_id, review._id: req.params.id}, {review.$.thoughts: 'IT CHANGED!!!'})
-  console.log(req.body);
+  console.log(req.body)
   Drink.findOneAndUpdate(
     {"_id": req.params.drink_id, "reviews._id": req.params.id},
     {
       "$set": {
-        "reviews.$": req.body
+        "reviews.$.rating": req.body.rating,
+        "reviews.$.bitter": req.body.bitter,
+        "reviews.$.sweet": req.body.sweet,
+        "reviews.$.salty": req.body.salty,
+        "reviews.$.sour": req.body.sour,
+        "reviews.$.savory": req.body.savory,
+        "reviews.$.thoughts": req.body.thoughts
       }
     },
     {new: true},
     function(err, drink){
-      if (err) console.log(err)
-      console.log(drink)
+      if (err) next(err)
+
       res.json(drink)
     }
   )

@@ -21,8 +21,9 @@ $(document).ready(function() {
       // Put the html for the updated todo in the appropriate column
         $drinkShow.append(drinkHTML);
         for(var i = 0; i < jsonDrink.drink.reviews.length; i++){
-          var reviews = createReviewHTML(jsonDrink.drink.id, jsonDrink.drink.reviews, i)
+          var reviews = createReviewHTML(jsonDrink.drink._id, jsonDrink.drink.reviews, i)
           $drinkShow.append(reviews)
+          // console.log('jsonDrink: ' + jsonDrink)
         }
         $drinkShow.append('<hr><a href="/drinks/' + jsonDrink.drink._id + '/review/new">Add Review</a>')
     }
@@ -34,6 +35,7 @@ function createDrinkHTML(drink){
 }
 
 function createReviewHTML(drinkId, reviews, reviewNum){
+  console.log(reviews)
   return '<li>rating: ' + reviews[reviewNum].rating + '</li>'
     + '<li>bitter: ' + reviews[reviewNum].bitter + '</li>'
     + '<li>sweet: ' + reviews[reviewNum].sweet + '</li>'
@@ -41,6 +43,7 @@ function createReviewHTML(drinkId, reviews, reviewNum){
     + '<li>salty: ' + reviews[reviewNum].salty + '</li>'
     + '<li>savory: ' + reviews[reviewNum].savory + '</li>'
     + '<li>thoughts: ' + reviews[reviewNum].thoughts + '</li>'
-    + '<li><a href=/drinks/"' + drinkId + '/review' + reviews[reviewNum.id] + '"></a></li>'
+    // + '<li><a href=/drinks/"' + drinkId + '/review' + reviews[reviewNum.id] + '"></a></li>'
+    + '<a href="/drinks/' + drinkId + '/review/' + reviews[reviewNum]._id + '">edit</a>'
     + '<hr>'
 }
